@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.app-sidebar {
+  width: 72px; /* compact sidebar width; adjust to 200px for expanded */
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #0f172a; /* dark blue as in screenshot */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 12px;
+  z-index: 40;
+  border-right: 1px solid rgba(255,255,255,0.04);
+}
+
+/* top-left icon area */
+.sidebar-top {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+  margin-bottom: 8px;
+}
+
+/* clickable logo */
+.sidebar-logo-link {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* small circular icon */
+.sidebar-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #fff; /* fallback if image missing */
+  margin-bottom: 6px;
+}
+
+/* optional small title under icon when sidebar is narrow */
+.sidebar-title {
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  color: rgba(255,255,255,0.9);
+  display: block;
+}
+
+/* nav items */
+.sidebar-nav { width: 100%; flex: 1; display: flex; align-items: flex-start; }
+.sidebar-nav ul { list-style: none; padding: 8px 0; margin: 0; width: 100%; display:flex; flex-direction:column; gap: 6px; }
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 6px;
+  width: 100%;
+  justify-content: center;
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  font-size: 14px;
+}
+.sidebar-item span { display: none; } /* hide labels for compact sidebar */
+
+/* hover/focus */
+.sidebar-item:hover,
+.sidebar-item:focus { background: rgba(255,255,255,0.04); border-radius: 8px; color: #fff; }
+
+/* when sidebar is expanded (optional) */
+@media (min-width: 1280px) {
+  .app-sidebar.expanded { width: 220px; align-items: flex-start; padding-left: 16px; }
+  .sidebar-logo { margin-bottom: 0; }
+  .sidebar-title { display: inline-block; margin-left: 8px; font-size: 15px; }
+  .sidebar-item { justify-content: flex-start; padding: 10px 12px; }
+  .sidebar-item span { display: inline-block; }
+}
+
+/* push main content to the right in layout:
+   ensure your main layout wrapper (e.g. .flex-1) has margin-left equal to sidebar width,
+   or add this helper when using this sidebar */
+.main-with-sidebar {
+  margin-left: 72px;
+}
