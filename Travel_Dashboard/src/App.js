@@ -12,7 +12,7 @@ import Conversation from "./pages/Conversation";
 import Users from "./pages/Users";
 import Chargeback from "./pages/Chargeback";
 import Login from "./components/Login";
-
+import FollowUp from "./pages/FollowUp";
 function RequireAuth({ children }) {
   const user = typeof window !== "undefined" && localStorage.getItem("user");
   if (!user) return <Navigate to="/" replace />; // root is login
@@ -57,6 +57,7 @@ export default function App() {
         <Route path="/conversation" element={<Conversation />} />
         <Route path="/users" element={<Users />} />
         <Route path="/chargeback" element={<Chargeback />} />
+        <Route path="/followup" element={<FollowUp />} />
       </Route>
 
       {/* fallback */}

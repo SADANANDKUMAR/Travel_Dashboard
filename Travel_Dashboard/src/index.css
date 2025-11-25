@@ -1,91 +1,339 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.app-sidebar {
-  width: 72px; /* compact sidebar width; adjust to 200px for expanded */
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  background: #0f172a; /* dark blue as in screenshot */
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 12px;
-  z-index: 40;
-  border-right: 1px solid rgba(255,255,255,0.04);
+
+/* ---------- Sidebar global styles (CRM look) ---------- */
+#logo-sidebar {
+  background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%);
+  border: none !important;
 }
 
-/* top-left icon area */
-.sidebar-top {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 0;
-  margin-bottom: 8px;
-}
-
-/* clickable logo */
-.sidebar-logo-link {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  text-decoration: none;
-  color: inherit;
-}
-
-/* small circular icon */
+/* Logo spacing */
 .sidebar-logo {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  object-fit: cover;
-  background: #fff; /* fallback if image missing */
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 
-/* optional small title under icon when sidebar is narrow */
-.sidebar-title {
-  font-size: 11px;
-  letter-spacing: 0.6px;
-  color: rgba(255,255,255,0.9);
-  display: block;
+/* Menu item base */
+.sidebar-menu-item {
+  margin-bottom: 8px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
 }
 
-/* nav items */
-.sidebar-nav { width: 100%; flex: 1; display: flex; align-items: flex-start; }
-.sidebar-nav ul { list-style: none; padding: 8px 0; margin: 0; width: 100%; display:flex; flex-direction:column; gap: 6px; }
-.sidebar-item {
+/* hover translation & glow */
+.sidebar-menu-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(4px);
+}
+
+/* active style */
+.sidebar-menu-item.active {
+  background: rgba(255, 255, 255, 0.18);
+  border-left: 4px solid #60a5fa;
+}
+
+/* links inside items */
+.sidebar-menu-item a,
+.sidebar-dropdown-toggle {
+  color: rgba(255, 255, 255, 0.9) !important;
+  padding: 12px 16px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 6px;
-  width: 100%;
-  justify-content: center;
-  color: rgba(255,255,255,0.9);
   text-decoration: none;
+  font-weight: 500;
+}
+
+/* active link color */
+.sidebar-menu-item.active a {
+  color: white !important;
+}
+
+/* svg icons inside items */
+.sidebar-menu-item svg {
+  color: rgba(255, 255, 255, 0.7) !important;
+  margin-right: 12px;
+  width: 20px;
+  height: 20px;
+}
+
+/* active icon color */
+.sidebar-menu-item.active svg {
+  color: #60a5fa !important;
+}
+
+/* dropdown toggle */
+.sidebar-dropdown-toggle {
+  background: none !important;
+  border: none !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  padding: 12px 16px;
+  border-radius: 12px;
+  width: 100%;
+  text-align: left;
+  font-weight: 500;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* hover on toggle */
+.sidebar-dropdown-toggle:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.sidebar-dropdown-content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+/* arrow */
+.sidebar-dropdown-arrow {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.3s ease;
+}
+
+/* rotate when aria-expanded true handled inline in JSX */
+.sidebar-submenu {
+  margin-left: 20px;
+  margin-top: 8px;
+}
+
+.sidebar-submenu li {
+  margin-bottom: 4px;
+}
+
+.sidebar-submenu a {
+  color: rgba(255, 255, 255, 0.75) !important;
+  padding: 8px 12px;
   font-size: 14px;
-}
-.sidebar-item span { display: none; } /* hide labels for compact sidebar */
-
-/* hover/focus */
-.sidebar-item:hover,
-.sidebar-item:focus { background: rgba(255,255,255,0.04); border-radius: 8px; color: #fff; }
-
-/* when sidebar is expanded (optional) */
-@media (min-width: 1280px) {
-  .app-sidebar.expanded { width: 220px; align-items: flex-start; padding-left: 16px; }
-  .sidebar-logo { margin-bottom: 0; }
-  .sidebar-title { display: inline-block; margin-left: 8px; font-size: 15px; }
-  .sidebar-item { justify-content: flex-start; padding: 10px 12px; }
-  .sidebar-item span { display: inline-block; }
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
 }
 
-/* push main content to the right in layout:
-   ensure your main layout wrapper (e.g. .flex-1) has margin-left equal to sidebar width,
-   or add this helper when using this sidebar */
-.main-with-sidebar {
-  margin-left: 72px;
+.sidebar-submenu a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 1) !important;
+}
+
+/* remove list defaults */
+#logo-sidebar ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+
+#logo-sidebar li {
+  list-style: none !important;
+}
+
+/* hide native scrollbars visually (optional) */
+#logo-sidebar .overflow-y-auto {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#logo-sidebar .overflow-y-auto::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* small adjustments for submenu icons */
+.sidebar-submenu svg {
+  width: 18px;
+  height: 18px;
+  opacity: 0.88;
+  margin-right: 8px;
+}
+
+/* responsive: keep sidebar pinned on larger screens */
+@media (min-width: 640px) {
+  #logo-sidebar {
+    transform: translateX(0);
+  }
+}
+
+/* Optional: a utility class for active link visual if needed */
+.sidebar-link-active {
+  background: rgba(255,255,255,0.22);
+  color: white !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* ---------------------- NAVBAR  ---------------------- */
+
+.nh-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: #ffffff;
+  border-bottom: 1px solid #e6e6e9;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.nh-nav-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 10px 16px;
+}
+
+.nh-left,
+.nh-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  /* margin-left: 16rem; */
+}
+
+/* Search Box */
+.nh-search-desktop {
+  display: flex;
+  align-items: center;
+  background: #efefef;;
+  border-radius: 8px;
+  padding: 6px 10px;
+  gap: 8px;
+  margin-left: 36px;
+}
+
+.nh-search-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 260px;
+  font-size: 14px;
+  color: #111827;
+}
+
+.nh-search-icon {
+  width: 18px;
+  height: 18px;
+  color: #6b7280;
+}
+
+/* Buttons */
+.nh-btn {
+  position: relative;
+  background: transparent;
+  border: 0;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.nh-icon {
+  width: 20px;
+  height: 20px;
+  color: #4b5563;
+}
+
+.nh-badge {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* Profile Button */
+.nh-user-btn {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nh-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.nh-avatar.large {
+  width: 44px;
+  height: 44px;
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+/* Dropdown */
+.nh-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 240px;
+  background: #fff;
+  border: 1px solid #e6e6e9;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+  overflow: hidden;
+  z-index: 60;
+}
+
+.nh-user-info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.nh-user-name {
+  font-weight: 600;
+  color: #111827;
+}
+.nh-user-email {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.nh-dropdown-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+}
+
+.nh-dropdown-item {
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #374151;
+  cursor: pointer;
+}
+
+.nh-dropdown-item:hover {
+  background: #f8fafc;
+}
+
+/* Footer */
+.nh-dropdown-footer {
+  padding: 8px 12px;
+  border-top: 1px solid #f3f4f6;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nh-logout {
+  background: #ef4444;
+  color: #fff;
+  border: 0;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nh-search-desktop { display: none; }
 }
