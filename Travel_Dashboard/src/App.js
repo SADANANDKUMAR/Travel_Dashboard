@@ -9,10 +9,13 @@ import Cruise from "./pages/Cruise";
 import Hotel from "./pages/Hotel";
 import Car from "./pages/Car";
 import Conversation from "./pages/Conversation";
-import Users from "./pages/Users";
+import UserManagement from "./pages/UserManagement";
 import Chargeback from "./pages/Chargeback";
 import Login from "./components/Login";
 import FollowUp from "./pages/FollowUp";
+import Signup from "./pages/Signup";
+import { Toaster } from "react-hot-toast";
+
 function RequireAuth({ children }) {
   const user = typeof window !== "undefined" && localStorage.getItem("user");
   if (!user) return <Navigate to="/" replace />; // root is login
@@ -35,7 +38,15 @@ function MainLayout() {
 
 export default function App() {
   return (
-    <Routes>
+    <>
+       <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 3000,
+          style: { fontSize: "14px" }
+        }}
+      />
+      <Routes>
       {/* root is login page (no sidebar/navbar) */}
       <Route path="/" element={<Login />} />
       <Route path="/login" element={<Login />} />
@@ -55,9 +66,12 @@ export default function App() {
         <Route path="/hotel" element={<Hotel />} />
         <Route path="/car" element={<Car />} />
         <Route path="/conversation" element={<Conversation />} />
-        <Route path="/users" element={<Users />} />
+        <Route path="/users" element={<UserManagement />} />
         <Route path="/chargeback" element={<Chargeback />} />
         <Route path="/followup" element={<FollowUp />} />
+
+        <Route path="/signup" element={<Signup />} />
+
       </Route>
 
       {/* fallback */}
@@ -68,5 +82,7 @@ export default function App() {
         }
       />
     </Routes>
+    </>
+  
   );
 }

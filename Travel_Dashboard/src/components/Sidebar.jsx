@@ -194,7 +194,7 @@ export default function Sidebar() {
 
           {/* Users */}
           <li className="sidebar-menu-item">
-            <NavLink to="/total_user/" className="flex items-center space-x-2 text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-lg">
+            <NavLink to="/users" className="flex items-center space-x-2 text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-lg">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round"
@@ -245,6 +245,17 @@ export default function Sidebar() {
                   d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
               </svg>
               <span>Activity Logs</span>
+            </NavLink>
+          </li>
+
+
+           <li className="sidebar-menu-item">
+            <NavLink to="/signup/" className="flex items-center space-x-2 px-3 py-2 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+              <span>Singup</span>
             </NavLink>
           </li>
         </ul>
