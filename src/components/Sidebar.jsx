@@ -239,7 +239,7 @@ export default function Sidebar() {
 
           {/* Activity Logs */}
           <li className="sidebar-menu-item">
-            <NavLink to="/audit/activity-logs/" className="flex items-center space-x-2 px-3 py-2 rounded-lg">
+            <NavLink to="/activity-log/" className="flex items-center space-x-2 px-3 py-2 rounded-lg">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                   d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -249,7 +249,7 @@ export default function Sidebar() {
           </li>
 
 
-           <li className="sidebar-menu-item">
+           {/* <li className="sidebar-menu-item">
             <NavLink to="/signup/" className="flex items-center space-x-2 px-3 py-2 rounded-lg">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
@@ -257,7 +257,7 @@ export default function Sidebar() {
               </svg>
               <span>Singup</span>
             </NavLink>
-          </li>
+          </li> */}
         </ul>
       </div>
     </aside>

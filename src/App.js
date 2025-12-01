@@ -14,6 +14,7 @@ import Chargeback from "./pages/Chargeback";
 import Login from "./components/Login";
 import FollowUp from "./pages/FollowUp";
 import Signup from "./pages/Signup";
+import ActivityLog from "./pages/ActivityLog";
 import { Toaster } from "react-hot-toast";
 
 function RequireAuth({ children }) {
@@ -69,7 +70,7 @@ export default function App() {
         <Route path="/users" element={<UserManagement />} />
         <Route path="/chargeback" element={<Chargeback />} />
         <Route path="/followup" element={<FollowUp />} />
-
+        <Route path="/activity-log" element={<ActivityLog />} />
         <Route path="/signup" element={<Signup />} />
 
       </Route>

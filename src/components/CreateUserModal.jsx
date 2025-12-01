@@ -77,6 +77,7 @@ export default function CreateUserModal({ open, onClose, fetchUsers, fetchStats,
           </select>
 
           <input type="password" name="password" placeholder="Password" onChange={handleChange} className="border p-2 rounded" required />
+          
           <input type="password" name="confirmPassword" placeholder="Confirm Password" onChange={handleChange} className="border p-2 rounded" required />
 
           <div className="md:col-span-2 flex justify-end gap-3">
