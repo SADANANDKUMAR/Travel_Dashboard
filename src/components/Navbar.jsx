@@ -125,9 +125,9 @@ export default function Navbar() {
             />
           </div>
 
-          <span className="text-sm font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">
+          {/* <span className="text-sm font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full">
             ● Demo
-          </span>
+          </span> */}
         </div>
 
         {/* RIGHT */}
