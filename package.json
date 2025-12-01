@@ -2,7 +2,6 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sadanandkumar.github.io/Travel_Dashboard",
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
     "@dnd-kit/sortable": "^10.0.0",
@@ -27,9 +26,7 @@
     "start": "concurrently \"npx @tailwindcss/cli -i ./src/index.css -o ./src/output.css --watch\" \"react-scripts start\"",
     "build": "npx @tailwindcss/cli -i ./src/index.css -o ./src/output.css && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
