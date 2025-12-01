@@ -205,7 +205,7 @@ export default function Sidebar() {
           </li>
 
           {/* Chargeback */}
-          <li className="sidebar-menu-item">
+          {/* <li className="sidebar-menu-item">
             <NavLink to="/chargeback/chargeback-list/" className="flex items-center space-x-2 px-3 py-2 rounded-lg">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
                 <path strokeLinecap="round" strokeLinejoin="round"
@@ -213,10 +213,10 @@ export default function Sidebar() {
               </svg>
               <span>Chargeback</span>
             </NavLink>
-          </li>
+          </li> */}
 
           {/* Notes */}
-          <li className="sidebar-menu-item">
+          {/* <li className="sidebar-menu-item">
             <NavLink to="/myNotes/" className="flex items-center space-x-2 px-3 py-2 rounded-lg">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
@@ -224,7 +224,7 @@ export default function Sidebar() {
               </svg>
               <span>Notes</span>
             </NavLink>
-          </li>
+          </li> */}
 
           {/* Followup */}
           <li className="sidebar-menu-item">
