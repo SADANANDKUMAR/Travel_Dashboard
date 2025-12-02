@@ -72,12 +72,6 @@
 .max-w-\[280px\] {
   max-width: 280px;
 }
-.min-w-\[900px\] {
-  min-width: 900px;
-}
-.min-w-\[1100px\] {
-  min-width: 1100px;
-}
 .flex-1 {
   flex: 1;
 }
@@ -168,9 +162,6 @@
 .bg-gradient-to-r {
   --tw-gradient-position: to right in oklab;
   background-image: linear-gradient(var(--tw-gradient-stops));
-}
-.pl-\[250px\] {
-  padding-left: 250px;
 }
 .text-center {
   text-align: center;

@@ -184,6 +184,7 @@ import UserTableRow from "../components/UserTableRow";
 import CreateUserModal from "../components/CreateUserModal";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { FaUsers, FaUserShield, FaUserTie, FaUserSlash } from "react-icons/fa";
 
 export default function UserManagement() {
   const [users, setUsers] = useState([]);
@@ -294,13 +295,17 @@ const fetchStats = async () => {
 
           {/* Stats */}
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-6">
-            {/* <UserStatCard title="Total Users" value={stats.totalUsers || 0} /> */}
-            <UserStatCard title="Total Users" value={stats?.totalUsers ?? 0} />
-            <UserStatCard title="Managers" value={stats.managers ?? 0} />
-            <UserStatCard title="Agents" value={stats.agents ?? 0} />
-            <UserStatCard title="Blocked Users" value={stats.blockedUsers ?? 0} />
+            <UserStatCard title="Total Users" value={stats?.totalUsers ?? 0} icon={<FaUsers />}  />
+            <UserStatCard title="Managers" value={stats.managers ?? 0}  icon={<FaUserShield />}/>
+            <UserStatCard title="Agents" value={stats.agents ?? 0}  icon={<FaUserTie />}/>
+            <UserStatCard title="Blocked Users" value={stats.blockedUsers ?? 0} icon={<FaUserSlash />} />
           </div>
-
+               {/* <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-6">
+            <UserStatCard title="Total Users" value={counts.total} icon={<FaUsers />} />
+            <UserStatCard title="Managers" value={counts.managers} icon={<FaUserShield />} />
+            <UserStatCard title="Agents" value={counts.agents} icon={<FaUserTie />} />
+            <UserStatCard title="Blocked Users" value={counts.blocked} icon={<FaUserSlash />} />
+          </div> */}
           {/* User Table */}
           <div className="bg-white rounded-lg p-4 shadow-sm border">
             <table className="w-full text-sm">
